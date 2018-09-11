@@ -532,6 +532,30 @@ public class InventoryTest extends TestCase {
 
 	}
 
+	public void testUseIngredientsMoreThanEnough() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		Recipe recipe = new Recipe();
+		try {
+			recipe.setAmtChocolate("5");
+			recipe.setAmtCoffee("5");
+			recipe.setAmtMilk("5");
+			recipe.setAmtSugar("5");
+		} catch (RecipeException exception) {
+			fail("Recipe did not work correctly - failing out!");
+		}
+
+		boolean result = inventory.useIngredients(recipe);
+
+		assertEquals(10, inventory.getChocolate());
+		assertEquals(10, inventory.getCoffee());
+		assertEquals(10, inventory.getMilk());
+		assertEquals(10, inventory.getSugar());
+
+	}
+
 	public void testInventoryToString() {
 
 		Inventory inventory = Inventory.getInstance();
