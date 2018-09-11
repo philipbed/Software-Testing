@@ -40,6 +40,7 @@ public class InventoryTest extends TestCase {
 		Inventory newInventory = Inventory.getInstance();
 
 		assertEquals(oldInventory, newInventory);
+		assertEquals(oldInventory.hashCode(), newInventory.hashCode());
 	}
 
 	public void testAddNegativeChocolate() {
