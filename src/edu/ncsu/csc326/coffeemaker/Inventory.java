@@ -13,16 +13,20 @@ public class Inventory {
     private static int milk;
     private static int sugar;
     private static int chocolate;
+
+    private static volatile Inventory instance;
     
     /**
      * Creates a coffee maker inventory object and
      * fills each item in the inventory with 15 units.
      */
-    public Inventory() {
-    	setCoffee(15);
-    	setMilk(15);
-    	setSugar(15);
-    	setChocolate(15);
+    private Inventory() {
+
+		setCoffee(15);
+		setMilk(15);
+		setSugar(15);
+		setChocolate(15);
+
     }
     
     /**
@@ -179,7 +183,7 @@ public class Inventory {
     	} catch (NumberFormatException e) {
     		throw new InventoryException("Units of sugar must be a positive integer");
     	}
-		if (amtSugar <= 0) {
+		if (amtSugar >= 0) {
 			Inventory.sugar += amtSugar;
 		} else {
 			throw new InventoryException("Units of sugar must be a positive integer");
@@ -217,7 +221,7 @@ public class Inventory {
      */
     public synchronized boolean useIngredients(Recipe r) {
     	if (enoughIngredients(r)) {
-	    	Inventory.coffee += r.getAmtCoffee();
+	    	Inventory.coffee -= r.getAmtCoffee();
 	    	Inventory.milk -= r.getAmtMilk();
 	    	Inventory.sugar -= r.getAmtSugar();
 	    	Inventory.chocolate -= r.getAmtChocolate();
@@ -248,4 +252,20 @@ public class Inventory {
     	buf.append("\n");
     	return buf.toString();
     }
+
+    public static Inventory getInstance() {
+
+    	if (instance == null) {
+
+    		synchronized (Inventory.class) {
+
+    			if (instance == null) {
+
+    				instance = new Inventory();
+
+				}
+			}
+		}
+		return instance;
+	}
 }

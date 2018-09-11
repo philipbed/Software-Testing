@@ -17,7 +17,7 @@ public class CoffeeMaker {
      */
 	public CoffeeMaker() {
 	    recipeBook = new RecipeBook();
-		inventory = new Inventory();
+		inventory = Inventory.getInstance();
 	}
 	
 	/**
