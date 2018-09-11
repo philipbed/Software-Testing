@@ -221,8 +221,57 @@ public class RecipeBookTest extends TestCase {
         String deleted4 = book.deleteRecipe(3);
         assertEquals(deleted4, recipeName4);
         assertEquals("", arr[3].getName());
+    }
 
+    public void testEditRecipe() {
 
+        String recipeName1 = "recipe1";
+        String recipeName2 = "recipe2";
+
+        RecipeBook book = new RecipeBook();
+
+        Recipe recipe = new Recipe();
+        recipe.setName(recipeName1);
+
+        book.addRecipe(recipe);
+
+        Recipe [] arr = book.getRecipes();
+
+        // verify we added a recipe correctly for sanity
+        assertEquals(recipeName1, arr[0].getName());
+
+        Recipe recipe1 = new Recipe();
+        recipe1.setName(recipeName2);
+
+        String ret = book.editRecipe(0, recipe1);
+        assertEquals(recipeName1, ret);
+        assertEquals(recipeName2, arr[0].getName());
+
+    }
+
+    public void testEditRecipeWhenRecipeDoesNotExist() {
+
+        String recipeName1 = "recipe1";
+        String recipeName2 = "recipe2";
+
+        RecipeBook book = new RecipeBook();
+
+        Recipe recipe = new Recipe();
+        recipe.setName(recipeName1);
+
+        book.addRecipe(recipe);
+
+        Recipe [] arr = book.getRecipes();
+
+        // verify we added a recipe correctly for sanity
+        assertEquals(recipeName1, arr[0].getName());
+
+        Recipe recipe1 = new Recipe();
+        recipe1.setName(recipeName2);
+
+        String ret = book.editRecipe(1, recipe1);
+        assertEquals(null, ret);
+        assertEquals(recipeName1, arr[0].getName());
 
     }
 }
