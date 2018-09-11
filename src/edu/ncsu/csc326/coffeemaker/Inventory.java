@@ -64,7 +64,12 @@ public class Inventory {
     		throw new InventoryException("Units of chocolate must be a positive integer");
     	}
 		if (amtChocolate >= 0) {
-			Inventory.chocolate += amtChocolate;
+			long test = (long)Inventory.chocolate + amtChocolate;
+			if (test > Integer.MAX_VALUE || test < Integer.MIN_VALUE) {
+				throw new InventoryException("Integer Overflow detected given number to add, '" + amtChocolate + "' too large.");
+			} else {
+				Inventory.chocolate += amtChocolate;
+			}
 		} else {
 			throw new InventoryException("Units of chocolate must be a positive integer");
 		}
@@ -104,7 +109,12 @@ public class Inventory {
     		throw new InventoryException("Units of coffee must be a positive integer");
     	}
 		if (amtCoffee >= 0) {
-			Inventory.coffee += amtCoffee;
+			long test = (long)Inventory.coffee + amtCoffee;
+			if (test > Integer.MAX_VALUE || test < Integer.MIN_VALUE) {
+				throw new InventoryException("Integer Overflow detected given number to add, '" + amtCoffee + "' too large.");
+			} else {
+				Inventory.coffee += amtCoffee;
+			}
 		} else {
 			throw new InventoryException("Units of coffee must be a positive integer");
 		}
@@ -144,7 +154,12 @@ public class Inventory {
     		throw new InventoryException("Units of milk must be a positive integer");
     	}
 		if (amtMilk >= 0) {
-			Inventory.milk += amtMilk;
+			long test = (long)Inventory.milk + amtMilk;
+			if (test > Integer.MAX_VALUE || test < Integer.MIN_VALUE) {
+				throw new InventoryException("Integer Overflow detected given number to add, '" + amtMilk + "' too large.");
+			} else {
+				Inventory.milk += amtMilk;
+			}
 		} else {
 			throw new InventoryException("Units of milk must be a positive integer");
 		}
@@ -184,7 +199,12 @@ public class Inventory {
     		throw new InventoryException("Units of sugar must be a positive integer");
     	}
 		if (amtSugar >= 0) {
-			Inventory.sugar += amtSugar;
+			long test = (long)Inventory.sugar + amtSugar;
+			if (test > Integer.MAX_VALUE || test < Integer.MIN_VALUE) {
+				throw new InventoryException("Integer Overflow detected given number to add, '" + amtSugar + "' too large.");
+			} else {
+				Inventory.sugar += amtSugar;
+			}
 		} else {
 			throw new InventoryException("Units of sugar must be a positive integer");
 		}

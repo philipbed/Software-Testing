@@ -82,6 +82,63 @@ public class InventoryTest extends TestCase {
 		}
 	}
 
+	public void testAddMaxIntegerChocolate() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		try {
+			inventory.addChocolate("2147483647");
+			fail("Add Chocolate should throw InventoryException due to recognizing integer overflow. Current Chocolate after adding 2147483647: " + inventory.getChocolate());
+		} catch (InventoryException exception) {
+
+		}
+	}
+
+	public void testSetNegativeChocolate() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		inventory.setChocolate(-1);
+		assertEquals(15, inventory.getChocolate());
+	}
+
+	public void testSetPositiveChocolate() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		inventory.setChocolate(50);
+		assertEquals(50, inventory.getChocolate());
+	}
+
+	public void testSetMinIntegerChocolate() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		inventory.setChocolate(-2147483648);
+		assertEquals(15, inventory.getChocolate());
+	}
+
+	public void testSetMaxIntegerChocolate() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		inventory.setChocolate(2147483647);
+		assertEquals(2147483647, inventory.getChocolate());
+	}
+
+	public void testGetChocolate() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		assertEquals(15, inventory.getChocolate());
+	}
+
 	public void testAddNegativeCoffee() {
 
 		Inventory inventory = Inventory.getInstance();
@@ -119,6 +176,63 @@ public class InventoryTest extends TestCase {
 		} catch (InventoryException exception) {
 
 		}
+	}
+
+	public void testAddMaxIntegerCoffee() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		try {
+			inventory.addCoffee("2147483647");
+			fail("Add Coffee should throw InventoryException due to recognizing integer overflow. Current Coffee after adding 2147483647: " + inventory.getCoffee());
+		} catch (InventoryException exception) {
+
+		}
+	}
+
+	public void testSetNegativeCoffee() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		inventory.setCoffee(-1);
+		assertEquals(15, inventory.getCoffee());
+	}
+
+	public void testSetPositiveCoffee() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		inventory.setCoffee(50);
+		assertEquals(50, inventory.getCoffee());
+	}
+
+	public void testSetMinIntegerCoffee() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		inventory.setCoffee(-2147483648);
+		assertEquals(15, inventory.getCoffee());
+	}
+
+	public void testSetMaxIntegerCoffee() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		inventory.setCoffee(2147483647);
+		assertEquals(2147483647, inventory.getCoffee());
+	}
+
+	public void testGetCoffee() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		assertEquals(15, inventory.getCoffee());
 	}
 
 	public void testAddNegativeSugar() {
@@ -160,6 +274,63 @@ public class InventoryTest extends TestCase {
 		}
 	}
 
+	public void testAddMaxIntegerSugar() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		try {
+			inventory.addSugar("2147483647");
+			fail("Add Sugar should throw InventoryException due to recognizing integer overflow. Current Sugar after adding 2147483647: " + inventory.getSugar());
+		} catch (InventoryException exception) {
+
+		}
+	}
+
+	public void testSetNegativeSugar() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		inventory.setSugar(-1);
+		assertEquals(15, inventory.getSugar());
+	}
+
+	public void testSetPositiveSugar() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		inventory.setSugar(50);
+		assertEquals(50, inventory.getSugar());
+	}
+
+	public void testSetMinIntegerSugar() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		inventory.setSugar(-2147483648);
+		assertEquals(15, inventory.getSugar());
+	}
+
+	public void testSetMaxIntegerSugar() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		inventory.setSugar(2147483647);
+		assertEquals(2147483647, inventory.getSugar());
+	}
+
+	public void testGetSugar() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		assertEquals(15, inventory.getSugar());
+	}
+
 	public void testAddNegativeMilk() {
 
 		Inventory inventory = Inventory.getInstance();
@@ -196,6 +367,63 @@ public class InventoryTest extends TestCase {
 		} catch (InventoryException exception) {
 
 		}
+	}
+
+	public void testAddMaxIntegerMilk() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		try {
+			inventory.addMilk("2147483647");
+			fail("Add Milk should throw InventoryException due to recognizing integer overflow. Current Milk after adding 2147483647: " + inventory.getMilk());
+		} catch (InventoryException exception) {
+
+		}
+	}
+
+	public void testSetNegativeMilk() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		inventory.setMilk(-1);
+		assertEquals(15, inventory.getMilk());
+	}
+
+	public void testSetPositiveMilk() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		inventory.setMilk(50);
+		assertEquals(50, inventory.getMilk());
+	}
+
+	public void testSetMinIntegerMilk() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		inventory.setMilk(-2147483648);
+		assertEquals(15, inventory.getMilk());
+	}
+
+	public void testSetMaxIntegerMilk() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		inventory.setMilk(2147483647);
+		assertEquals(2147483647, inventory.getMilk());
+	}
+
+	public void testGetMilk() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		assertEquals(15, inventory.getMilk());
 	}
 
 	public void testEnoughIngredientsMoreThanEnough() {
