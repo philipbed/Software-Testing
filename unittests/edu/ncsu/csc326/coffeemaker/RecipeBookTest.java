@@ -296,4 +296,30 @@ public class RecipeBookTest extends TestCase {
 
         assertEquals(null, expectedNullString);
     }
+
+    public void testOutOfRangeIndexException() {
+
+        RecipeBook book = new RecipeBook();
+
+        Recipe [] arr = book.getRecipes();
+
+        try {
+            String name = arr[4].getName();
+            fail("Accessing an index outside of bounds should throw ArrayIndexOutOfBoundsException");
+        } catch (ArrayIndexOutOfBoundsException exception) {
+
+        }
+    }
+
+    public void testAllNullRecipesOnInit() {
+
+        RecipeBook book = new RecipeBook();
+
+        Recipe [] arr = book.getRecipes();
+
+        for(int i = 0; i < 4; i++) {
+            assertEquals(null, arr[i]);
+        }
+
+    }
 }
