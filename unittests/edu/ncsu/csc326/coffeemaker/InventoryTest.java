@@ -564,6 +564,122 @@ public class InventoryTest extends TestCase {
 		assertNotNull(inventory.toString());
 	}
 
+	public void testAddChocolateDoubleString() {
+
+		String doubleString = "2.5";
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		try {
+			inventory.addChocolate(doubleString);
+			fail("This should throw an exception for sending a non-integer number!");
+		} catch (InventoryException exception) {
+
+		}
+
+	}
+
+	public void testAddCoffeeDoubleString() {
+
+		String doubleString = "2.5";
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		try {
+			inventory.addCoffee(doubleString);
+			fail("This should throw an exception for sending a non-integer number!");
+		} catch (InventoryException exception) {
+
+		}
+
+	}
+
+	public void testAddMilkDoubleString() {
+
+		String doubleString = "2.5";
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		try {
+			inventory.addMilk(doubleString);
+			fail("This should throw an exception for sending a non-integer number!");
+		} catch (InventoryException exception) {
+
+		}
+
+	}
+
+	public void testAddSugarDoubleString() {
+
+		String doubleString = "2.5";
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		try {
+			inventory.addSugar(doubleString);
+			fail("This should throw an exception for sending a non-integer number!");
+		} catch (InventoryException exception) {
+
+		}
+
+	}
+
+	public void testAddSugarEmptyString() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		try {
+			inventory.addSugar("");
+			fail("This should throw an exception for sending an empty string!");
+		} catch (InventoryException exception) {
+
+		}
+	}
+
+	public void testAddCoffeeEmptyString() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		try {
+			inventory.addCoffee("");
+			fail("This should throw an exception for sending an empty string!");
+		} catch (InventoryException exception) {
+
+		}
+	}
+
+	public void testAddChocolateEmptyString() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		try {
+			inventory.addChocolate("");
+			fail("This should throw an exception for sending an empty string!");
+		} catch (InventoryException exception) {
+
+		}
+	}
+
+	public void testAddMilkEmptyString() {
+
+		Inventory inventory = Inventory.getInstance();
+		inventory = resetInventory(inventory);
+
+		try {
+			inventory.addMilk("");
+			fail("This should throw an exception for sending an empty string!");
+		} catch (InventoryException exception) {
+
+		}
+	}
+
 	private Inventory resetInventory(Inventory inventory) {
 		inventory.setChocolate(15);
 		inventory.setCoffee(15);

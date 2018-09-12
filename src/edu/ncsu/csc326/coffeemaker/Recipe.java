@@ -175,12 +175,9 @@ public class Recipe {
 		if (getClass() != obj.getClass())
 			return false;
 		final Recipe other = (Recipe) obj;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
+		if (!name.equals(other.name))
 			return false;
 		return true;
-	}
+		}
 
 }

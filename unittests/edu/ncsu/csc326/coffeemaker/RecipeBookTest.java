@@ -274,4 +274,26 @@ public class RecipeBookTest extends TestCase {
         assertEquals(recipeName1, arr[0].getName());
 
     }
+
+    public void testAddSameRecipe() {
+
+        RecipeBook book = new RecipeBook();
+
+        Recipe recipe = new Recipe();
+        recipe.setName("test");
+
+        boolean expectedTrue = book.addRecipe(recipe);
+        boolean expectedFalse = book.addRecipe(recipe);
+
+        assertEquals(true, expectedTrue);
+        assertEquals(false, expectedFalse);
+    }
+
+    public void testDeleteNonExistentRecipe() {
+
+        RecipeBook book = new RecipeBook();
+        String expectedNullString = book.deleteRecipe(2);
+
+        assertEquals(null, expectedNullString);
+    }
 }
