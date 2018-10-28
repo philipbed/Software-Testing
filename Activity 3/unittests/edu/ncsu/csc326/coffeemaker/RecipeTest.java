@@ -23,6 +23,11 @@ public class RecipeTest extends TestCase {
 		r1.setAmtMilk("1");
 		r1.setAmtSugar("1");
 		r1.setPrice("50");
+
+		assertEquals(r1.getAmtChocolate(),0 );
+		assertEquals(r1.getAmtCoffee(),3 );
+		assertEquals(r1.getAmtMilk(),1 );
+		assertEquals(r1.getAmtSugar(),1 );
 		
 		r2 = new Recipe();
 		r2.setName("Coffee");
@@ -483,13 +488,13 @@ public class RecipeTest extends TestCase {
 	 * Test the hash code for a recipe.
 	 */
 	public void testHashCode() {
-		assertEquals(r1.hashCode(), (31 * 1 + r1.getName().hashCode()));
+		assertEquals(r1.hashCode(), (31 * 2 + r1.getName().hashCode()));
 	}
 	
 	/**
 	 * Test the hash code for a null recipe.
 	 */
 	public void testHashCodeNull() {
-		assertEquals(r4.hashCode(), 31);
+		assertEquals(r4.hashCode(), 62);
 	}
 }
