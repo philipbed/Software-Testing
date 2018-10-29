@@ -61,8 +61,38 @@ public class CoffeeMakerTest extends TestCase {
 	
 	public void testAddInventory() {
 		try {
-			cm.addInventory("4","7","0","9");
-		} catch (InventoryException e) {
+			String coffee = "4";
+			String milk = "7";
+			String sugar = "3";
+			String chocolate = "9";
+
+			cm.addInventory(coffee,milk,sugar,chocolate);
+			// check that the inventory actually contains what was just added
+			// return from toString:
+//			StringBuffer buf = new StringBuffer();
+//			buf.append("Coffee: ");
+//			buf.append(getCoffee());
+//			buf.append("\n");
+//			buf.append("Milk: ");
+//			buf.append(getMilk());
+//			buf.append("\n");
+//			buf.append("Sugar: ");
+//			buf.append(getSugar());
+//			buf.append("\n");
+//			buf.append("Chocolate: ");
+//			buf.append(getChocolate());
+//			buf.append("\n");
+
+			String ret = cm.checkInventory();
+			String newLine[]= ret.split("\n");
+
+			// Inventory initially has 15 in all slots. assert against 15 + whatever is added
+			assertEquals("19", newLine[0].split(": ")[1]);
+			assertEquals("22", newLine[1].split(": ")[1]);
+			assertEquals("18", newLine[2].split(": ")[1]);
+			assertEquals("24", newLine[3].split(": ")[1]);
+
+	} catch (InventoryException e) {
 			fail("InventoryException should not be thrown");
 		}
 	}
@@ -77,8 +107,9 @@ public class CoffeeMakerTest extends TestCase {
 	}
 	
 	public void testMakeCoffee() {
-		cm.addRecipe(r1);
-		assertEquals(25, cm.makeCoffee(0, 75));
+		boolean result = cm.addRecipe(r1);
+		assertTrue(result);
+		assertEquals(0, cm.makeCoffee(0, 50));
 	}
 
 }
